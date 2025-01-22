@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card shadow">
-                <div class="card-header"><h2>{{ __('Data PPDB') }}</h2></div>
+                <div class="card-header"><h2>{{ __('Data Kategori') }}</h2></div>
 
                 <div class="card-body">
                     @if (session('success'))
@@ -18,41 +18,32 @@
                     <thead>
                         <tr>
                           <th scope="col">NO</th>
-                          <th scope="col">NAMA</th>
-                          <th scope="col">JENIS KELAMIN</th>
-                          <th scope="col">AGAMA</th>
-                          <th scope="col">ALAMAT</th>
-                          <th scope="col">TELPON</th>
-                          <th scope="col">ASAL SEKOLAH</th>
+                          <th scope="col">NAMA_KATEGORI</th>
                           <th scope="col">ACTION</th>
                         </tr>
                       </thead>
                       <tbody>
                          @php $no = 1;@endphp
-                         @foreach ($ppdb as $data)
+                         @foreach ($kategori as $data)
                          <tr>
                            <th scope="row">{{$no++}}</th>
-                           <td>{{$data->nama_lengkap}}</td>
-                           <td>{{$data->jenis_kelamin}}</td>
-                           <td>{{$data->agama}}</td>
-                           <td>{{$data->alamat}}</td>
-                           <td>{{$data->telpon}}</td>
-                           <td>{{$data->asal_sekolah}}</td>
+                           <td>{{$data->nama_kategori}}</td>
                            <td>
-                            <a class="btn btn-success" href="{{ route('ppdb.edit', $data->id)}}">Edit</a>
-                            <a class="btn btn-warning" href="{{ route('ppdb.show', $data->id)}}">Show</a>
+                            <a class="btn btn-success" href="{{ route('kategori.edit', $data->id)}}">Edit</a>
+                            <a class="btn btn-warning" href="{{ route('kategori.show', $data->id)}}">Show</a>
         
-                            <form action="{{ route('ppdb.destroy', $data->id)}}" method="POST" style="display:inline">
+                            <form action="{{ route('kategori.destroy', $data->id)}}" method="POST" style="display:inline">
                             @csrf 
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclide="retrun confirm('Apakah Anda Yakin?')">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="retrun confirm('Apakah Anda Yakin?')">Delete</button>
                         </form>
                         </td>
                         </tr>
                            @endforeach
                     </tbody>
                     </table>
-                    <a class="btn btn-primary" href="{{ route('ppdb.create') }}"><b>+</b></a>
+                    <a class="btn btn-primary" href="{{ route('kategori.create') }}"><b>+</b></a>
+                    <a class="btn btn-secondary" href="{{ route('produk.index') }}"><b>Lihat Produk</b></a>
                 </div>
             </div>
         </div>

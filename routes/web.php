@@ -5,7 +5,10 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SiswasController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PpdbsController;
-
+use App\Http\Controllers\PenggunasController;
+use App\Http\Controllers\TeleponsController;
+use App\Http\Controllers\KategorisController;
+use App\Http\Controllers\ProduksController;
 
 
 /*
@@ -134,8 +137,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //crud
 Route::resource('siswa', SiswasController::class);
 
-//siswa
-Route::get('form', [FormController::class, 'create']);
-Route::post('form', [FormController::class, 'store']);
-
 Route::resource('ppdb', PpdbsController::class);
+
+//pengguna
+Route::resource('pengguna', PenggunasController::class);
+Route::resource('telepon', TeleponsController::class);
+Route::resource('kategori', KategorisController::class);
+Route::resource('produk', ProduksController::class);

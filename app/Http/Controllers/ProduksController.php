@@ -43,6 +43,14 @@ class ProduksController extends Controller
          $produk->harga      =$request->harga;
          $produk->stock      =$request->stock;
          $produk->id_kategori      =$request->id_kategori;
+
+         if ($request->hasFile('cover')) {
+            $img = $request->file('cover');
+            $name = rand(1000,9999) . $img->getClientOriginalName();
+            $img->move('images/produk', $name);
+            $produk->cover = $name;
+         }
+
          $produk->save();
 
          return redirect()->route('produk.index')->with('success', 'Data Anda Sudah Tersimpan!');
@@ -87,6 +95,14 @@ class ProduksController extends Controller
         $produk->harga            =$request->harga;
         $produk->stock            =$request->stock;
         $produk->id_kategori      =$request->id_kategori;
+        
+        if ($request->hasFile('cover')) {
+            $produk->deleteImage();
+            $img = $request->file('cover');
+            $name = rand(1000,9999) . $img->getClientOriginalName();
+            $img->move('images/produk', $name);
+            $produk->cover = $name;
+         }
         $produk->save();
 
          return redirect()->route('produk.index')->with('success', 'Data Anda Sudah Diperbaharui!');

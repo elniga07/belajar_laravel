@@ -28,9 +28,13 @@
     <input type="number" class="form-control" id="stock" value="{{$produk->stock}}" disabled>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">ID Pengguna</label>
+    <label for="exampleInputPassword1" class="form-label">ID Kategori</label>
     <input type="text" class="form-control" id="id_kategori" value="{{$produk->id_kategori}}" disabled>
   </div>
+  <div class="mb-3">
+  <label>Image</label>
+  <img src="{{ asset('/images/produk/' . $produk->cover) }}" width="100">
+</div>
 <br>
     <a type="submit" class="btn btn-primary" href="{{ route('produk.index')}}">Back</a>
 </form>

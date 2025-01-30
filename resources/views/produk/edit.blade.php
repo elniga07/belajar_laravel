@@ -18,15 +18,15 @@
                         @method('PUT')
                         <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Nama Produk</label>
-    <input type="text" class="form-control" name="nama_produk">
+    <input type="text" class="form-control" name="nama_produk" value="{{$produk->nama_produk}}">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Harga</label>
-    <input type="text" class="form-control" name="harga">
+    <input type="text" class="form-control" name="harga" value="{{$produk->harga}}">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Stock</label>
-    <input type="number" class="form-control" name="stock">
+    <input type="number" class="form-control" name="stock" value="{{$produk->stock}}">
   </div>
   <div class="mb-3">
   <select class="form-select form-select-sm" aria-label="Small select example" name="id_kategori">
@@ -36,6 +36,11 @@
   @endforeach
 </select>
   </div>
+  <div class="mb-3">
+  <label>Image</label>
+  <img src="{{ asset('/images/produk/' . $produk->cover) }}" width="100">
+  <input type="file" class="form-control" name="cover" required>
+</div>
 <br>
   <button type="submit" class="btn btn-primary">Save</button>
 </form>

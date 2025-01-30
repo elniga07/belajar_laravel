@@ -9,6 +9,14 @@ use App\Http\Controllers\PenggunasController;
 use App\Http\Controllers\TeleponsController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\ProduksController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\PenerbitsController;
+use App\Http\Controllers\GenresController;
+use App\Http\Controllers\BukusController;
+use App\Http\Controllers\PembelisController;
+use App\Http\Controllers\TransaksisController;
 
 
 /*
@@ -144,3 +152,11 @@ Route::resource('pengguna', PenggunasController::class);
 Route::resource('telepon', TeleponsController::class);
 Route::resource('kategori', KategorisController::class);
 Route::resource('produk', ProduksController::class);
+Route::resource('product', ProductsController::class);
+Route::resource('customer', CustomersController::class);
+Route::resource('order', OrdersController::class);
+Route::resource('penerbit', PenerbitsController::class);
+Route::resource('genre', GenresController::class);
+Route::resource('buku', BukusController::class);
+Route::resource('pembeli', PembelisController::class);
+Route::resource('transaksi', TransaksisController::class);

@@ -22,6 +22,7 @@
                           <th scope="col">HARGA</th>
                           <th scope="col">STOCK</th>
                           <th scope="col">ID Kategori</th>
+                          <th scope="col">IMAGE</th>
                           <th scope="col">ACTION</th>
                         </tr>
                       </thead>
@@ -34,6 +35,9 @@
                            <td>{{$data->harga}}</td>
                            <td>{{$data->stock}}</td>
                            <td>{{$data->kategori->nama_kategori}}</td>
+                           <td>
+                                <img src="{{ asset('/images/produk/' . $data->cover) }}" width="100">
+                           </td>
                            <td>
                             <a class="btn btn-success" href="{{ route('produk.edit', $data->id)}}">Edit</a>
                             <a class="btn btn-warning" href="{{ route('produk.show', $data->id)}}">Show</a>

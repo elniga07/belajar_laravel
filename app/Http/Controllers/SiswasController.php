@@ -47,6 +47,13 @@ class SiswasController extends Controller
          $siswa->nama          =$request->nama;
          $siswa->jenis_kelamin =$request->jenis_kelamin;
          $siswa->kelas         =$request->kelas;
+         
+         if ($request->hasFile('cover')) {
+            $img = $request->file('cover');
+            $name = rand(1000,9999) . $img->getClientOriginalName();
+            $img->move('images/siswa', $name);
+            $siswa->cover = $name;
+         }
          $siswa->save();
 
          return redirect()->route('siswa.index')->with('success', 'Data Anda Sudah Tersimpan!');
@@ -90,6 +97,15 @@ class SiswasController extends Controller
          $siswa->nama          =$request->nama;
          $siswa->jenis_kelamin =$request->jenis_kelamin;
          $siswa->kelas         =$request->kelas;
+
+         if ($request->hasFile('cover')) {
+            $siswa->deleteImage();
+            $img = $request->file('cover');
+            $name = rand(1000,9999) . $img->getClientOriginalName();
+            $img->move('images/siswa', $name);
+            $siswa->cover = $name;
+         }
+
          $siswa->save();
 
          return redirect()->route('siswa.index')->with('success', 'Data Anda Sudah Diperbaharui!');

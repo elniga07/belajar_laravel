@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_kategori');
             //relasi
             $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('cascade');
+            $table->string('cover');
             $table->timestamps();
         });
     }
